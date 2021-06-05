@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Your_New_Favorite_Poem.Models
 {
@@ -16,23 +13,23 @@ namespace Your_New_Favorite_Poem.Models
         }
         
         [Key, DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
-        public int Id { get; set; }
+        public int Id { get; init; }
 
-        public Author Author { get; set; }
+        public Author Author { get; init; } = new Author();
 
-        public string Title { get; set; }
+        public string Title { get; init; } = string.Empty;
 
-        public Uri URL { get; set; }
+        public Uri? URL { get; init; }
 
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; init; }
 
         [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Identity)]
-        public DateTimeOffset CreatedAt { get; set; }
+        public DateTimeOffset CreatedAt { get; init; }
 
         [DatabaseGenerat‌ed(DatabaseGeneratedOp‌​tion.Computed)]
-        public DateTimeOffset UpdatedAt { get; set; }
+        public DateTimeOffset UpdatedAt { get; init; }
 
-        public bool IsVerified { get; set; } = false;
+        public bool IsVerified { get; init; } = false;
 
     }
 

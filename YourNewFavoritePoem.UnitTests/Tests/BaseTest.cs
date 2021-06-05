@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using Your_New_Favorite_Poem;
@@ -19,10 +15,10 @@ namespace YourNewFavoritePoem.UnitTests.Tests
         [SetUp]
         public void Setup()
         {
-            var optionsBuilder = new DbContextOptionsBuilder<AuthorsDbContext>()
-    .UseInMemoryDatabase("InMemoryDb");
+            var optionsBuilder = new DbContextOptionsBuilder<AuthorsDbContext>().UseInMemoryDatabase(nameof(YourNewFavoritePoem));
 
             authorsDbContext = new AuthorsDbContext(optionsBuilder.Options);
+
             DbInitializer.Initialize(authorsDbContext);
         }
     }

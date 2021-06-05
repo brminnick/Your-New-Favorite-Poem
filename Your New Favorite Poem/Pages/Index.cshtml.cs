@@ -4,8 +4,6 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Your_New_Favorite_Poem.Constants;
-using Your_New_Favorite_Poem.Database;
 using Your_New_Favorite_Poem.Models;
 
 namespace Your_New_Favorite_Poem.Pages
@@ -22,7 +20,8 @@ namespace Your_New_Favorite_Poem.Pages
 
             var randomAuthor = AuthorsFromDatabase[index];
             var poemIndex = rnd.Next(0, randomAuthor.Poems.Count);
-            return Redirect(randomAuthor.Poems[poemIndex].URL.ToString());
+
+            return Redirect(randomAuthor.Poems[poemIndex].URL?.ToString());
         }
         private readonly ILogger<IndexModel> _logger;
 
